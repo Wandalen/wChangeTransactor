@@ -2,15 +2,12 @@
 
 'use strict';
 
-var _ = _global_.wTools;
-var _hasOwnProperty = Object.hasOwnProperty;
-
 if( typeof module !== 'undefined' )
 {
 
   if( typeof _global_ === 'undefined' || !_global_.wBase )
   {
-    let toolsPath = '../../../../dwtools/Base.s';
+    let toolsPath = '../../../dwtools/Base.s';
     let toolsExternal = 0;
     try
     {
@@ -29,7 +26,12 @@ if( typeof module !== 'undefined' )
 
   _.include( 'wProto' );
 
+  require( './Changes.s' );
+
 }
+
+var _ = _global_.wTools;
+var _hasOwnProperty = Object.hasOwnProperty;
 
 //
 
