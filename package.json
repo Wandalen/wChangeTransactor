@@ -1,0 +1,34 @@
+{
+  "name": "wchangetransactor",
+  "version": "0.3.0",
+  "description": "Change transactor",
+  "author": "Kostiantyn Wandalen <wtory.net@domainsbyproxy.com>",
+  "license": "MIT",
+  "main": "staging/dwtools/amid/change/ChangeTransactor.s",
+  "files": [
+    "staging/dwtools/amid",
+    "production"
+  ],
+  "scripts": {
+    "test": "wtest staging",
+    "make_doc": "./doc.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wandalen/wChangeTransactor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Wandalen/wChangeTransactor/issues"
+  },
+  "dependencies": {
+    "wTools": "",
+    "wProto": ""
+  },
+  "devDependencies": {
+    "wTesting": "",
+    "wchangetransactor": "."
+  },
+  "keywords": [
+    "wTools"
+  ]
+}
