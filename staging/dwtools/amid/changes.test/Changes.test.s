@@ -26,8 +26,8 @@ if( typeof module !== 'undefined' )
 
   _.include( 'wTesting' );
 
-  require( '../../abase/layer4/Changes.s' );
-  require( '../mixin/ChangeTransactor.s' );
+  require( '../changes/Changes.s' );
+  require( '../changes/ChangeTransactor.s' );
 
 }
 

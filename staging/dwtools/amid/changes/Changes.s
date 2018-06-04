@@ -328,7 +328,7 @@ function _changesSelectingClone( dst,src )
 
   _.assert( arguments.length === 2 );
 
-  if( _.atomicIs( src ) )
+  if( _.primitiveIs( src ) )
   return src;
 
   var result = _.cloneData
@@ -373,7 +373,7 @@ function _changesApplyingSet( dst,src )
 
   }
 
-  if( _.atomicIs( src ) )
+  if( _.primitiveIs( src ) )
   {
     return src;
   }
