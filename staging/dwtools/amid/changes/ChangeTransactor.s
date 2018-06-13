@@ -105,7 +105,7 @@ function _changed()
 }
 
 // --
-// proto
+// define class
 // --
 
 var Composes =

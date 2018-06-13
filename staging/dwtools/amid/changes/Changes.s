@@ -382,7 +382,7 @@ function _changesApplyingSet( dst,src )
 }
 
 // --
-// prototype
+// define class
 // --
 
 var Proto =
