@@ -1,6 +1,6 @@
 {
   "name": "wchangetransactor",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "Change transactor",
   "author": "Kostiantyn Wandalen <wtory.net@domainsbyproxy.com>",
   "license": "MIT",
