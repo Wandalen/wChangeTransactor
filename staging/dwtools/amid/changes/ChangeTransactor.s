@@ -46,7 +46,7 @@ function _mixin( cls )
     descriptor : Self,
   });
 
-  _.assert( arguments.length === 1 );
+  _.assert( arguments.length === 1, 'expects single argument' );
   _.assert( dstProto.Events.changed );
 
 }

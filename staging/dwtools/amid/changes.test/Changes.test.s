@@ -623,7 +623,7 @@ function changesApply( test )
 var Self =
 {
 
-  name : 'wTools/Changes',
+  name : 'Tools/amid/Changes',
   silencing : 1,
 
   context :
