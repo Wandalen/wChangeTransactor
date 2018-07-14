@@ -2,7 +2,7 @@
   "name": "wchangetransactor",
   "version": "0.3.10",
   "description": "Change transactor",
-  "author": "Kostiantyn Wandalen <wtory.net@domainsbyproxy.com>",
+  "author": "Kostiantyn Wandalen <wanalen@willbe.so>",
   "license": "MIT",
   "main": "staging/dwtools/amid/changes/ChangeTransactor.s",
   "files": [
