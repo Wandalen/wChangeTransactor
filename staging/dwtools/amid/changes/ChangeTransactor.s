@@ -126,7 +126,7 @@ var Events =
   'changed' : 'changed',
 }
 
-var Functor =
+var Functors =
 {
 }
 
@@ -152,7 +152,7 @@ var Self =
 
   _mixin : _mixin,
 
-  functor : Functor,
+  functors : Functors,
   supplement : Supplement,
 
   name : 'wChangeTransactor',
