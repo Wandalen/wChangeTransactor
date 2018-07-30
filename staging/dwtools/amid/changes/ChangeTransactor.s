@@ -35,7 +35,7 @@ var _ObjectHasOwnProperty = Object.hasOwnProperty;
 
 //
 
-function onMixin( dstClass )
+function onMixin( mixinDescriptor, dstClass )
 {
 
   var dstPrototype = dstClass.prototype;
