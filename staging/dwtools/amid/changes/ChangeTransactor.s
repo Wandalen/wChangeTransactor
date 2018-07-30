@@ -31,7 +31,7 @@ if( typeof module !== 'undefined' )
 }
 
 var _ = _global_.wTools;
-var _hasOwnProperty = Object.hasOwnProperty;
+var _ObjectHasOwnProperty = Object.hasOwnProperty;
 
 //
 
