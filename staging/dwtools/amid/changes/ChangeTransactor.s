@@ -48,7 +48,7 @@ function onMixin( mixinDescriptor, dstClass )
   // });
 
   _.assert( arguments.length === 2, 'expects exactly two arguments' );
-  _.assert( dstPrototype.Events.changed );
+  _.assert( _.strIs( dstPrototype.Events.changed ) );
 
 }
 

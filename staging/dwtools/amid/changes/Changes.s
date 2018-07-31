@@ -33,7 +33,7 @@ var _ArraySlice = Array.prototype.slice;
 var _FunctionBind = Function.prototype.bind;
 var _ObjectToString = Object.prototype.toString;
 var _ObjectHasOwnProperty = Object.hasOwnProperty;
-var _assert = _.assert;
+// var __assert = _.assert;
 
 // --
 // changes
@@ -72,8 +72,8 @@ function changesExtend( dst )
 function _changesExtend( dst,src )
 {
 
-  _assert( arguments.length === 2 );
-  _assert( _.objectIs( src ) );
+  _.assert( arguments.length === 2 );
+  _.assert( _.objectIs( src ) );
 
   for( var s in src )
   {
@@ -190,10 +190,10 @@ function _changesSelectFromContainer( resultContainer,srcContainer,changes,optio
 function _changesSelectFromTerminal( resultContainer,srcContainer,name,change,options )
 {
 
-  _assert( arguments.length === 5 );
-  _assert( change !== undefined );
-  _assert( _.objectIs( resultContainer ) );
-  _assert( _.strIs( name ) );
+  _.assert( arguments.length === 5 );
+  _.assert( change !== undefined );
+  _.assert( _.objectIs( resultContainer ) );
+  _.assert( _.strIs( name ) );
 
   if( _.boolIs( change ) )
   {
@@ -209,7 +209,7 @@ function _changesSelectFromTerminal( resultContainer,srcContainer,name,change,op
     }
 
     if( change && !options.ignoreUndefined )
-    _assert( resultContainer[ name ] !== undefined );
+    _.assert( resultContainer[ name ] !== undefined );
 
   }
   else if( _.objectIs( change ) )
@@ -297,7 +297,7 @@ function _changesApply( changes,dst,src,options )
   else if( _.objectIs( changes ) )
   {
 
-    _.assert( dst );
+    _.assert( !!dst );
     for( var c in changes )
     {
 
