@@ -617,7 +617,7 @@ function changesApply( test )
 }
 
 // --
-// define class
+// declare
 // --
 
 var Self =

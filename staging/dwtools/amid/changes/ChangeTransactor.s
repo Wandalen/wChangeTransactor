@@ -114,7 +114,7 @@ function _changed()
 }
 
 // --
-// define class
+// declare
 // --
 
 var Composes =
