@@ -55,7 +55,7 @@ function onMixin( mixinDescriptor, dstClass )
   //   descriptor : Self,
   // });
 
-  _.assert( arguments.length === 2, 'expects exactly two arguments' );
+  _.assert( arguments.length === 2, 'Expects exactly two arguments' );
   _.assert( _.strIs( dstPrototype.Events.changed ) );
 
 }

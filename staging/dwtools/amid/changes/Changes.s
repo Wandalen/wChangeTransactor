@@ -326,7 +326,7 @@ function _changesApply( changes,dst,src,options )
 function _changesSelectingClone( dst,src )
 {
 
-  _.assert( arguments.length === 2, 'expects exactly two arguments' );
+  _.assert( arguments.length === 2, 'Expects exactly two arguments' );
 
   if( _.primitiveIs( src ) )
   return src;
@@ -351,7 +351,7 @@ function _changesSelectingClone( dst,src )
 function _changesApplyingSet( dst,src )
 {
 
-  _.assert( arguments.length === 2, 'expects exactly two arguments' );
+  _.assert( arguments.length === 2, 'Expects exactly two arguments' );
 
   if( dst )
   {
