@@ -1,13 +1,14 @@
 {
   "name": "wchangetransactor",
-  "version": "0.3.32",
+  "version": "0.3.33",
   "description": "Still sketch. Mixin to add the ability to track changes of an object, to reflect changes in a data structure and to make possible to apply the changes to another object. Use the module to mirror object's changes somehow elsewhere, for example on server-side or client-side.",
   "author": "Kostiantyn Wandalen <wanalen@willbe.so>",
   "license": "MIT",
   "main": "proto/dwtools/amid/changes/ChangeTransactor.s",
   "files": [
     "proto/dwtools/amid/changes",
-    "proto/dwtools/Tools.s", "production"
+    "proto/dwtools/Tools.s",
+    "production"
   ],
   "scripts": {
     "test": "wtest staging",
