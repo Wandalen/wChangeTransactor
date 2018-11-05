@@ -7,7 +7,7 @@
   "main": "proto/dwtools/amid/changes/ChangeTransactor.s",
   "files": [
     "proto/dwtools/amid/changes",
-    "production"
+    "proto/dwtools/Tools.s", "production"
   ],
   "scripts": {
     "test": "wtest staging",
