@@ -1,10 +1,9 @@
 
-
 about :
 
   name : wChangeTransactor
   description : Still sketch. Mixin to add the ability to track changes of an object, to reflect changes in a data structure and to make possible to apply the changes to another object. Use the module to mirror object's changes somehow elsewhere, for example on server-side or client-side.
-  version : 0.3.36
+  version : 0.3.37
   enabled : 1
   interpreters :
   - nodejs >= 6.0.0
@@ -24,33 +23,27 @@ path :
   repository : git+https://github.com/Wandalen/wChangeTransactor.git
   bugs : https://github.com/Wandalen/wChangeTransactor/issues
 
+step :
+
+  export.proto :
+    inherit : export
+    export : path::proto
+    tar : 0
+    criterion :
+      debug : 1
+      proto : 1
+
 build :
 
-  debug.raw.export :
-    exportDirPath : path::out.debug
+  proto.export :
     criterion :
       default : 1
       debug : 1
       raw : 1
+      proto : 1
       export : 1
-      tar : 0
+      tar : 1
     steps :
-      # - build::.debug.raw
-      - step::export
-
-  release.compiled.export :
-    exportDirPath : path::out.release
-    criterion :
-      debug : 0
-      raw : 0
-      export : 1
-      tar : 0
-    steps :
-      - build::release.compiled
-      - step::export
-
-  export.all :
-    steps :
-      - build::debug.raw.export
-      - build::release.compiled.export
+      - build::debug.raw
+      - step::export.proto
 
