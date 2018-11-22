@@ -6,7 +6,7 @@ about:
     reflect changes in a data structure and to make possible to apply the
     changes to another object. Use the module to mirror object's changes somehow
     elsewhere, for example on server-side or client-side.
-  version: 0.3.37
+  version: 0.3.39
   enabled: 1
   interpreters:
     - nodejs >= 6.0.0
@@ -84,7 +84,7 @@ path:
 submodule: {}
 reflector:
   reflect.proto.0:
-    reflectMap:
+    filePath:
       ./proto: ./out.release
     srcFilter:
       maskAll:
@@ -108,7 +108,7 @@ reflector:
     inherit:
       - predefined.*
   reflect.proto.1:
-    reflectMap:
+    filePath:
       ./proto: ./out.debug
     srcFilter:
       maskAll:
@@ -154,15 +154,14 @@ reflector:
     inherit:
       - predefined.*
   exported.0:
-    reflectMap:
-      ./proto: true
+    filePath: ./proto
     srcFilter:
       prefixPath: .
     dstFilter:
       prefixPath: .
   exportedFiles.0:
     recursive: 0
-    reflectMap:
+    filePath:
       ./dwtools/Tools.s: true
       ./dwtools/amid/changes/Changes.s: true
       ./dwtools/amid/changes/ChangeTransactor.s: true
@@ -274,7 +273,7 @@ build:
       - 'step::export.proto'
 exported:
   proto.export:
-    version: 0.3.37
+    version: 0.3.39
     criterion:
       default: 1
       debug: 1
