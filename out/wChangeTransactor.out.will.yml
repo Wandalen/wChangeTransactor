@@ -167,8 +167,8 @@ reflector:
       ./dwtools/amid/changes/ChangeTransactor.s: true
       ./dwtools/amid/changes.test/Changes.test.s: true
     srcFilter:
-      basePath: ./proto
-      prefixPath: .
+      basePath: .
+      prefixPath: proto
     dstFilter:
       basePath: .
       prefixPath: .
