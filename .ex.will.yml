@@ -21,8 +21,8 @@ execution :
 
 path :
 
-  repository : git+https://github.com/Wandalen/wChangeTransactor.git
-  bugs : https://github.com/Wandalen/wChangeTransactor/issues
+  repository : git+https:///github.com/Wandalen/wChangeTransactor.git
+  bugs : https:///github.com/Wandalen/wChangeTransactor/issues
 
 step :
 
