@@ -1,18 +1,17 @@
-
 {
   "name": "wchangetransactor",
-  "version": "0.3.0",
-  "description": "___",
+  "version": "0.3.69",
+  "description": "Still sketch. Mixin to add the ability to track changes of an object, to reflect changes in a data structure and to make possible to apply the changes to another object. Use the module to mirror object's changes somehow elsewhere, for example on server-side or client-side.",
   "author": "Kostiantyn Wandalen <wanalen@willbe.so>",
   "license": "MIT",
-  "main": "proto/dwtools/amid/___",
+  "main": "proto/dwtools/amid/changes/ChangeTransactor.s",
   "files": [
-    "proto/dwtools/amid",
+    "proto/dwtools/amid/changes",
     "proto/dwtools/Tools.s",
     "production"
   ],
   "scripts": {
-    "test": "wtest proto",
+    "test": "wtest .run proto/**",
     "docgen": "wdocgen proto"
   },
   "repository": {
@@ -23,7 +22,8 @@
     "url": "https://github.com/Wandalen/wChangeTransactor/issues"
   },
   "dependencies": {
-    "wTools": ""
+    "wTools": "",
+    "wProto": ""
   },
   "devDependencies": {
     "wTesting": ""
