@@ -22,7 +22,7 @@ about :
 path :
 
   repository : git+https:///github.com/Wandalen/wChangeTransactor.git
-  remotes :
+  origins :
    - git+https:///github.com/Wandalen/wChangeTransactor.git
    - npm:///wchangetransactor
   bugs : https:///github.com/Wandalen/wChangeTransactor/issues
