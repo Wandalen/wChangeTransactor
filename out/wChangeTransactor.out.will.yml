@@ -3,8 +3,8 @@ root:
   - wChangeTransactor.out
 consistency:
   wChangeTransactor.out.will.yml: &ref_0
-    hash: f5ce42ce9061ced59e92147d709336ef
-    size: 13718
+    hash: 027faf7a0d5ea4a7a17a73ebacc92f12
+    size: 13552
   ../.ex.will.yml: &ref_1
     hash: dffada4f599f4caec6aed321b354eb22
     size: 1163
@@ -15,6 +15,7 @@ module:
   wChangeTransactor.out:
     about:
       name: wChangeTransactor
+      org: noorg
       description: >-
         Still sketch. Mixin to add the ability to track changes of an object, to
         reflect changes in a data structure and to make possible to apply the
@@ -56,9 +57,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wChangeTransactor.git'
       origins:
@@ -68,14 +66,10 @@ module:
       bugs:
         path: 'https:///github.com/Wandalen/wChangeTransactor/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       temp:
         path: .
       out:
-        criterion:
-          predefined: 0
         path: .
       out.debug:
         criterion:
@@ -91,6 +85,7 @@ module:
         path: '{path::proto}/**'
       exported.dir.proto.export:
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -101,6 +96,7 @@ module:
         path: ../proto
       exported.files.proto.export:
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -162,6 +158,7 @@ module:
           prefixPath: ../proto
         mandatory: 1
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -179,6 +176,7 @@ module:
         recursive: 0
         mandatory: 1
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -270,6 +268,7 @@ module:
         opts:
           reflector: 'reflector::exported.proto.export*'
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -283,6 +282,7 @@ module:
         opts:
           reflector: 'reflector::exported.files.proto.export*'
         criterion:
+          generated: 1
           default: 1
           debug: 1
           raw: 1
@@ -363,6 +363,7 @@ module:
   ../:
     about:
       name: wChangeTransactor
+      org: noorg
       description: >-
         Still sketch. Mixin to add the ability to track changes of an object, to
         reflect changes in a data structure and to make possible to apply the
@@ -404,9 +405,6 @@ module:
       download:
         criterion:
           predefined: 1
-      remote:
-        criterion:
-          predefined: 1
       repository:
         path: 'git+https:///github.com/Wandalen/wChangeTransactor.git'
       origins:
@@ -416,25 +414,21 @@ module:
       bugs:
         path: 'https:///github.com/Wandalen/wChangeTransactor/issues'
       in:
-        criterion:
-          predefined: 0
         path: .
       temp:
         path: out
       out:
-        criterion:
-          predefined: 0
         path: out
       out.debug:
         criterion:
           debug: 1
-        path: ./out/debug
+        path: out/debug
       out.release:
         criterion:
           debug: 0
-        path: ./out/release
+        path: out/release
       proto:
-        path: ./proto
+        path: proto
       export:
         path: '{path::proto}/**'
     submodule: {}
