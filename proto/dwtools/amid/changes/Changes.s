@@ -11,6 +11,11 @@ if( typeof module !== 'undefined' )
 
 //
 
+/**
+ * @namespace Tools( module::ChangeTransactor )
+ * @memberof module:Tools/base/ChangeTransactor
+*/
+
 var Self = _global_.wTools;
 var _ = _global_.wTools;
 
@@ -25,10 +30,11 @@ var _ObjectHasOwnProperty = Object.hasOwnProperty;
 // --
 
 /**
- * Extend name map by other name maps.
- * @method changesExtend
- * @memberof wTools#
- */
+ * @summary Extend name map `dst` by other name maps.
+ * @param {Object} dst Target map.
+ * @function changesExtend
+ * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+*/
 
 function changesExtend( dst )
 {
@@ -49,10 +55,12 @@ function changesExtend( dst )
 //
 
 /**
- * Extend name map by other name map.
- * @method _changesExtend
- * @memberof wTools#
- */
+ * @summary Extend name map `dst` by other name map `src`.
+ * @param {Object} dst Target map.
+ * @param {Object} src Source map.
+ * @function _changesExtend
+ * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+*/
 
 function _changesExtend( dst,src )
 {
@@ -113,10 +121,13 @@ function _changesExtend( dst,src )
 //
 
 /**
- * Selects sub map from map with help of changes map.
- * @method changesSelect
- * @memberof wTools#
- */
+ * @summary Selects sub map from map `src` with help of `changes` map.
+ * @param {Object} changes Changes map.
+ * @param {Object} src Source map.
+ * @param {Object} options Options map.
+ * @function changesSelect
+ * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+*/
 
 function changesSelect( changes,src,options )
 {
@@ -141,10 +152,14 @@ function changesSelect( changes,src,options )
 //
 
 /**
- * Selects sub map from map with help of changes map. Actual implementation.
- * @method _changesSelectFromContainer
- * @memberof wTools#
- */
+ * @summary Selects sub map from map `srcContainer` with help of `changes` map. Actual implementation.
+ * @param {Object} resultContainer Result map.
+ * @param {Object} srcContainer Source map.
+ * @param {Object} changes Changes map.
+ * @param {Object} options Options map.
+ * @function _changesSelectFromContainer
+ * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+*/
 
 function _changesSelectFromContainer( resultContainer,srcContainer,changes,options )
 {
@@ -167,10 +182,15 @@ function _changesSelectFromContainer( resultContainer,srcContainer,changes,optio
 //
 
 /**
- * Selects sub map from map with help of changes map. Actual implementation.
- * @method _changesSelectFromContainer
- * @memberof wTools#
- */
+ * @summary Selects property from map `srcContainer` with name of `name` map. Actual implementation.
+ * @param {Object} resultContainer Result map.
+ * @param {Object} srcContainer Source map.
+ * @param {String} name Property name.
+ * @param {Object} change Changes map.
+ * @param {Object} options Options map.
+ * @function _changesSelectFromTerminal
+ * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+*/
 
 function _changesSelectFromTerminal( resultContainer,srcContainer,name,change,options )
 {
@@ -223,10 +243,14 @@ function _changesSelectFromTerminal( resultContainer,srcContainer,name,change,op
 //
 
 /**
- * Apply changes to object.
- * @method changesApply
- * @memberof wTools#
- */
+ * @summary Apply changes to object.
+ * @param {Object} changes Changes map.
+ * @param {Object} dst Target map.
+ * @param {Object} src Source map.
+ * @param {Object} options Options map.
+ * @function changesApply
+ * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+*/
 
 function changesApply( changes,dst,src,options )
 {
@@ -241,10 +265,14 @@ function changesApply( changes,dst,src,options )
 //
 
 /**
- * Apply changes to object.
- * @method changesApply
- * @memberof wTools#
- */
+ * @summary Apply changes to object. Actual implementation.
+ * @param {Object} changes Changes map.
+ * @param {Object} dst Target map.
+ * @param {Object} src Source map.
+ * @param {Object} options Options map.
+ * @function _changesApply
+ * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+*/
 
 function _changesApply( changes,dst,src,options )
 {
@@ -303,10 +331,11 @@ function _changesApply( changes,dst,src,options )
 //
 
 /**
- * Selects sub map from map with help of changes map. Actual implementation.
- * @method _changesSelectingClone
- * @memberof wTools#
- */
+ * @summary Clones source enity. Actual implementation.
+ * @param {} src Source entity.
+ * @function _changesSelectingClone
+ * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+*/
 
 function _changesSelectingClone( dst,src )
 {
@@ -328,10 +357,11 @@ function _changesSelectingClone( dst,src )
 //
 
 /**
- * Selects sub map from map with help of changes map. Actual implementation.
- * @method _changesApplyingSet
- * @memberof wTools#
- */
+ * @param {Object} dst Target entity.
+ * @param {Object} src Source entity.
+ * @function _changesApplyingSet
+ * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+*/
 
 function _changesApplyingSet( dst,src )
 {
