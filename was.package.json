@@ -16,7 +16,7 @@
   {
     "url" : "https://github.com/Wandalen/wChangeTransactor/issues"
   }, 
-  "dependencies" : { "wTools" : "beta", "wProto" : "beta" }, 
-  "devDependencies" : { "wTesting" : "beta" }, 
+  "dependencies" : { "wTools" : "", "wProto" : "" }, 
+  "devDependencies" : { "wTesting" : "" }, 
   "keywords" : [ "wTools" ]
 }

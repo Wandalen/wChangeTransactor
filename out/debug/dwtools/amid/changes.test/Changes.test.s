@@ -398,7 +398,7 @@ function changesExtend( test )
   {
     var sample = samples[ s ];
     var expected = sample.expected;
-    var extend = _.arraySelect( changesArray,sample.extend )
+    var extend = _.longSelectWithIndices( changesArray,sample.extend )
     var args = _.arrayAppendArray( [ {} ],extend );
     var got = _.changesExtend.apply( _,args );
 
@@ -623,7 +623,7 @@ function changesApply( test )
 var Self =
 {
 
-  name : 'Tools/mid/Changes',
+  name : 'Tools.mid.Changes',
   silencing : 1,
 
   context :

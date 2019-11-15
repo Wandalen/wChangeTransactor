@@ -24,12 +24,15 @@ path :
 
   repository : git+https:///github.com/Wandalen/wChangeTransactor.git
   bugtracker : https:///github.com/Wandalen/wChangeTransactor/issues
+  origins :
+   - git+https:///github.com/Wandalen/wChangeTransactor.git
+   - npm:///wchangetransactor
 
 step :
 
   proto.export :
     inherit : module.export
-    export : path::proto
+    export : path::export
     tar : 0
     criterion :
       content : 'proto'
