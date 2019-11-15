@@ -29,12 +29,11 @@ var _ObjectHasOwnProperty = Object.hasOwnProperty;
 
 /**
  @classdesc Mixin to add the ability to track changes of an object, to reflect changes in a data structure and to make possible to apply the changes to another object.
- @class wChangeTransactor 
+ @class wChangeTransactor
  @memberof module:Tools/base/ChangeTransactor
 */
 
-
-function onMixin( mixinDescriptor, dstClass )
+function onMixinApply( mixinDescriptor, dstClass )
 {
 
   var dstPrototype = dstClass.prototype;
@@ -54,7 +53,7 @@ function onMixin( mixinDescriptor, dstClass )
 //
 
 /**
- @function changeBegin 
+ @function changeBegin
  @memberof module:Tools/base/ChangeTransactor.wChangeTransactor#
 */
 
@@ -72,7 +71,7 @@ function changeBegin()
 //
 
 /**
- @function changeEnd 
+ @function changeEnd
  @memberof module:Tools/base/ChangeTransactor.wChangeTransactor#
 */
 
@@ -93,7 +92,7 @@ function changeEnd()
 //
 
 /**
- @function changed 
+ @function changed
  @memberof module:Tools/base/ChangeTransactor.wChangeTransactor#
 */
 
@@ -165,7 +164,7 @@ var Supplement =
 var Self =
 {
 
-  onMixin : onMixin,
+  onMixinApply : onMixinApply,
 
   functors : Functors,
   supplement : Supplement,

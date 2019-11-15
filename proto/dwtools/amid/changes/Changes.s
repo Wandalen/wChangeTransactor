@@ -302,7 +302,7 @@ function _changesApply( changes,dst,src,options )
       if( c+1 < changes.length && val === undefined )
       {
         debugger;
-        val = _.entityMake( dst );
+        val = _.entityMakeConstructing( dst );
       }
     }
     dst = val;
