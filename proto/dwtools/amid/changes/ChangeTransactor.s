@@ -61,7 +61,7 @@ function changeBegin()
 {
   var self = this;
 
-  _.assert( arguments.length === 0 );
+  _.assert( arguments.length === 0, 'Expects no arguments' );
   _.assert( self._changeLevel >= 0 );
 
   self._changeLevel += 1;
@@ -79,7 +79,7 @@ function changeEnd()
 {
   var self = this;
 
-  _.assert( arguments.length === 0 );
+  _.assert( arguments.length === 0, 'Expects no arguments' );
   _.assert( self._changeLevel >= 1 );
 
   self._changeLevel -= 1;
@@ -100,7 +100,7 @@ function changed()
 {
   var self = this;
 
-  _.assert( arguments.length === 0 );
+  _.assert( arguments.length === 0, 'Expects no arguments' );
 
   if( self._changeLevel === 0 )
   self._changed();
