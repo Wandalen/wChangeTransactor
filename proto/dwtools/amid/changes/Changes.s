@@ -222,7 +222,7 @@ function _changesSelectFromTerminal( resultContainer,srcContainer,name,change,op
     if( resultContainer[ name ] )
     {
       if( !_.objectIs( resultContainer[ name ] ) )
-      resultContainer[ name ] = _.arrayToMap( resultContainer[ name ] );
+      resultContainer[ name ] = _.longToMap( resultContainer[ name ] );
     }
     else
     {
