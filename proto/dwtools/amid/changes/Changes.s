@@ -12,7 +12,7 @@ if( typeof module !== 'undefined' )
 //
 
 /**
- * @namespace Tools( module::ChangeTransactor )
+ * @namespace Tools.ChangeTransactor 
  * @memberof module:Tools/base/ChangeTransactor
 */
 
