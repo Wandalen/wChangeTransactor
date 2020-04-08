@@ -11,11 +11,6 @@ if( typeof module !== 'undefined' )
 
 //
 
-/**
- * @namespace Tools.ChangeTransactor 
- * @memberof module:Tools/base/ChangeTransactor
-*/
-
 var Self = _global_.wTools;
 var _ = _global_.wTools;
 
@@ -33,7 +28,8 @@ var _ObjectHasOwnProperty = Object.hasOwnProperty;
  * @summary Extend name map `dst` by other name maps.
  * @param {Object} dst Target map.
  * @function changesExtend
- * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+ * @namespace wTools
+ * @module Tools/base/ChangeTransactor
 */
 
 function changesExtend( dst )
@@ -59,7 +55,8 @@ function changesExtend( dst )
  * @param {Object} dst Target map.
  * @param {Object} src Source map.
  * @function _changesExtend
- * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+ * @namespace wTools
+ * @module Tools/base/ChangeTransactor
 */
 
 function _changesExtend( dst,src )
@@ -126,7 +123,8 @@ function _changesExtend( dst,src )
  * @param {Object} src Source map.
  * @param {Object} options Options map.
  * @function changesSelect
- * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+ * @namespace wTools
+ * @module Tools/base/ChangeTransactor
 */
 
 function changesSelect( changes,src,options )
@@ -158,7 +156,8 @@ function changesSelect( changes,src,options )
  * @param {Object} changes Changes map.
  * @param {Object} options Options map.
  * @function _changesSelectFromContainer
- * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+ * @namespace wTools
+ * @module Tools/base/ChangeTransactor
 */
 
 function _changesSelectFromContainer( resultContainer,srcContainer,changes,options )
@@ -189,7 +188,8 @@ function _changesSelectFromContainer( resultContainer,srcContainer,changes,optio
  * @param {Object} change Changes map.
  * @param {Object} options Options map.
  * @function _changesSelectFromTerminal
- * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+ * @namespace wTools
+ * @module Tools/base/ChangeTransactor
 */
 
 function _changesSelectFromTerminal( resultContainer,srcContainer,name,change,options )
@@ -249,7 +249,8 @@ function _changesSelectFromTerminal( resultContainer,srcContainer,name,change,op
  * @param {Object} src Source map.
  * @param {Object} options Options map.
  * @function changesApply
- * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+ * @namespace wTools
+ * @module Tools/base/ChangeTransactor
 */
 
 function changesApply( changes,dst,src,options )
@@ -271,7 +272,8 @@ function changesApply( changes,dst,src,options )
  * @param {Object} src Source map.
  * @param {Object} options Options map.
  * @function _changesApply
- * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+ * @namespace wTools
+ * @module Tools/base/ChangeTransactor
 */
 
 function _changesApply( changes,dst,src,options )
@@ -334,7 +336,8 @@ function _changesApply( changes,dst,src,options )
  * @summary Clones source enity. Actual implementation.
  * @param {} src Source entity.
  * @function _changesSelectingClone
- * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+ * @namespace wTools
+ * @module Tools/base/ChangeTransactor
 */
 
 function _changesSelectingClone( dst,src )
@@ -360,7 +363,8 @@ function _changesSelectingClone( dst,src )
  * @param {Object} dst Target entity.
  * @param {Object} src Source entity.
  * @function _changesApplyingSet
- * @memberof module:Tools/base/ChangeTransactor.Tools( module::ChangeTransactor )
+ * @namespace wTools
+ * @module Tools/base/ChangeTransactor
 */
 
 function _changesApplyingSet( dst,src )
