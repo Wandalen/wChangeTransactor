@@ -334,7 +334,7 @@ function _changesApply( changes,dst,src,options )
 
 /**
  * @summary Clones source enity. Actual implementation.
- * @param {} src Source entity.
+ * @param {*} src Source entity.
  * @function _changesSelectingClone
  * @namespace wTools
  * @module Tools/base/ChangeTransactor
