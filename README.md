@@ -6,7 +6,7 @@ Still sketch. Mixin to add the ability to track changes of an object, to reflect
 ### Try out
 ```
 npm install
-node sample/Sample.js
+node sample/Sample.s
 ```
 
 
