@@ -1,7 +1,7 @@
 
 if( typeof module !== 'undefined' )
 require( 'wchangetransactor' );
-var _ = wTools;
+let _ = wTools;
 
 /**/
 

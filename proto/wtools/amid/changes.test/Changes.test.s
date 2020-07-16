@@ -7,7 +7,7 @@ if( typeof module !== 'undefined' )
 
   require( '../../../wtools/Tools.s' );
 
-  var _ = _global_.wTools;
+  let _ = _global_.wTools;
 
   _.include( 'wTesting' );
 
@@ -16,7 +16,7 @@ if( typeof module !== 'undefined' )
 
 }
 
-var _ = _global_.wTools;
+let _ = _global_.wTools;
 
 // --
 // common
@@ -605,7 +605,7 @@ function changesApply( test )
 // declare
 // --
 
-var Self =
+let Self =
 {
 
   name : 'Tools.mid.Changes',
