@@ -25,7 +25,7 @@ var _ObjectHasOwnProperty = Object.hasOwnProperty;
 // --
 
 /**
- * @summary Extend name map `dst` by other name maps.
+ * @summary Extension name map `dst` by other name maps.
  * @param {Object} dst Target map.
  * @function changesExtend
  * @namespace wTools
@@ -51,7 +51,7 @@ function changesExtend( dst )
 //
 
 /**
- * @summary Extend name map `dst` by other name map `src`.
+ * @summary Extension name map `dst` by other name map `src`.
  * @param {Object} dst Target map.
  * @param {Object} src Source map.
  * @function _changesExtend
