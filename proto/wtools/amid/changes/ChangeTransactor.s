@@ -8,8 +8,7 @@
 */
 
 /**
- * @file ChangeTransactor.s.
- */
+ *  */
 
 if( typeof module !== 'undefined' )
 {
