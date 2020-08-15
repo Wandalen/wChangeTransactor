@@ -1,1 +1,22 @@
-{"name":"wchangetransactor","version":"0.3.205","description":"Still sketch. Mixin to add the ability to track changes of an object, to reflect changes in a data structure and to make possible to apply the changes to another object. Use the module to mirror object's changes somehow elsewhere, for example on server-side or client-side.","author":"Kostiantyn Wandalen <wanalen@01.school>","license":"MIT","main":"proto/wtools/amid/changes/ChangeTransactor.s","files":["proto/wtools/amid/changes","proto/wtools/Tools.s","out"],"scripts":{"test":"wtest .run 'proto/**' rapidity:-3","docgen":"wdocgen proto"},"repository":{"type":"git","url":"https://github.com/Wandalen/wChangeTransactor.git"},"bugs":{"url":"https://github.com/Wandalen/wChangeTransactor/issues"},"dependencies":{"wTools":"","wProto":""},"devDependencies":{"wTesting":""},"keywords":["wTools"]}
+{
+  "name" : "wchangetransactor",
+  "version" : "0.3.206",
+  "description" : "Still sketch. Mixin to add the ability to track changes of an object, to reflect changes in a data structure and to make possible to apply the changes to another object. Use the module to mirror object's changes somehow elsewhere, for example on server-side or client-side.",
+  "author" : "Kostiantyn Wandalen <wanalen@01.school>",
+  "license" : "MIT",
+  "main" : "proto/wtools/amid/changes/ChangeTransactor.s",
+  "files" : [ "proto/wtools/amid/changes", "proto/wtools/Tools.s", "out" ],
+  "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen proto" },
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "https://github.com/Wandalen/wChangeTransactor.git"
+  },
+  "bugs" :
+  {
+    "url" : "https://github.com/Wandalen/wChangeTransactor/issues"
+  },
+  "dependencies" : { "wTools" : "", "wProto" : "" },
+  "devDependencies" : { "wTesting" : "" },
+  "keywords" : [ "wTools" ]
+}
