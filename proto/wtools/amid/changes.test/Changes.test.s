@@ -1,4 +1,5 @@
-( function _Changes_test_s_( ) {
+( function _Changes_test_s_( )
+{
 
 'use strict';
 
@@ -164,113 +165,113 @@ function changesExtend( test )
     // simplest
 
     {
-      extend : [ 0,1 ],
+      extend : [ 0, 1 ],
       expected : changesArray[ 1 ],
     },
 
     {
-      extend : [ 1,0 ],
+      extend : [ 1, 0 ],
       expected : changesArray[ 0 ],
     },
 
     // 0-ended
 
     {
-      extend : [ 2,0 ],
+      extend : [ 2, 0 ],
       expected : changesArray[ 0 ],
     },
 
     {
-      extend : [ 3,0 ],
+      extend : [ 3, 0 ],
       expected : changesArray[ 0 ],
     },
 
     {
-      extend : [ 4,0 ],
+      extend : [ 4, 0 ],
       expected : changesArray[ 0 ],
     },
 
     {
-      extend : [ 1,2,0 ],
+      extend : [ 1, 2, 0 ],
       expected : changesArray[ 0 ],
     },
 
     {
-      extend : [ 1,3,0 ],
+      extend : [ 1, 3, 0 ],
       expected : changesArray[ 0 ],
     },
 
     {
-      extend : [ 1,4,0 ],
+      extend : [ 1, 4, 0 ],
       expected : changesArray[ 0 ],
     },
 
     {
-      extend : [ 2,1,0 ],
+      extend : [ 2, 1, 0 ],
       expected : changesArray[ 0 ],
     },
 
     {
-      extend : [ 3,1,0 ],
+      extend : [ 3, 1, 0 ],
       expected : changesArray[ 0 ],
     },
 
     {
-      extend : [ 4,1,0 ],
+      extend : [ 4, 1, 0 ],
       expected : changesArray[ 0 ],
     },
 
     // 1-ended
 
     {
-      extend : [ 2,1 ],
+      extend : [ 2, 1 ],
       expected : changesArray[ 1 ],
     },
 
     {
-      extend : [ 3,1 ],
+      extend : [ 3, 1 ],
       expected : changesArray[ 1 ],
     },
 
     {
-      extend : [ 4,1 ],
+      extend : [ 4, 1 ],
       expected : changesArray[ 1 ],
     },
 
     {
-      extend : [ 0,2,1 ],
+      extend : [ 0, 2, 1 ],
       expected : changesArray[ 1 ],
     },
 
     {
-      extend : [ 0,3,1 ],
+      extend : [ 0, 3, 1 ],
       expected : changesArray[ 1 ],
     },
 
     {
-      extend : [ 0,4,1 ],
+      extend : [ 0, 4, 1 ],
       expected : changesArray[ 1 ],
     },
 
     {
-      extend : [ 2,0,1 ],
+      extend : [ 2, 0, 1 ],
       expected : changesArray[ 1 ],
     },
 
     {
-      extend : [ 3,0,1 ],
+      extend : [ 3, 0, 1 ],
       expected : changesArray[ 1 ],
     },
 
     {
-      extend : [ 4,0,1 ],
+      extend : [ 4, 0, 1 ],
       expected : changesArray[ 1 ],
     },
 
     // 0-x
 
     {
-      extend : [ 0,2 ],
+      extend : [ 0, 2 ],
       expected :
       {
         a :
@@ -287,7 +288,7 @@ function changesExtend( test )
     },
 
     {
-      extend : [ 0,3 ],
+      extend : [ 0, 3 ],
       expected :
       {
         a :
@@ -304,7 +305,7 @@ function changesExtend( test )
     },
 
     {
-      extend : [ 0,4 ],
+      extend : [ 0, 4 ],
       expected :
       {
         a :
@@ -323,7 +324,7 @@ function changesExtend( test )
     // 1-x
 
     {
-      extend : [ 1,2 ],
+      extend : [ 1, 2 ],
       expected :
       {
         a :
@@ -340,7 +341,7 @@ function changesExtend( test )
     },
 
     {
-      extend : [ 1,3 ],
+      extend : [ 1, 3 ],
       expected :
       {
         a :
@@ -357,7 +358,7 @@ function changesExtend( test )
     },
 
     {
-      extend : [ 1,4 ],
+      extend : [ 1, 4 ],
       expected :
       {
         a :
@@ -383,11 +384,11 @@ function changesExtend( test )
   {
     var sample = samples[ s ];
     var expected = sample.expected;
-    var extend = _.longShrinkWithIndices( changesArray,sample.extend )
-    var args = _.arrayAppendArray( [ {} ],extend );
-    var got = _.changesExtend.apply( _,args );
+    var extend = _.longShrinkWithIndices( changesArray, sample.extend )
+    var args = _.arrayAppendArray( [ {} ], extend );
+    var got = _.changesExtend.apply( _, args );
 
-    test.identical( got,expected );
+    test.identical( got, expected );
   }
 
 }
@@ -472,13 +473,14 @@ function changesSelect( test )
   for( var s = 0 ; s < changesArray.length ; s++ )
   {
     var changes = changesArray[ s ];
-    var expected = _.cloneJust( expectedArray[ s ] );
-    var dstData = _.cloneJust( _dstData );
+    var expected = _.mapShallowClone( expectedArray[ s ] );
+    // var expected = _.cloneJust( expectedArray[ s ] );
+    // var dstData = _.cloneJust( _dstData );
 
-    logger.log( s + ' changes\n',_.toStr( changes,{ levels : 3 } ) );
+    logger.log( s + ' changes\n', _.toStr( changes, { levels : 3 } ) );
 
-    var got = _.changesSelect( changes,srcData );
-    test.identical( got,expected );
+    var got = _.changesSelect( changes, srcData );
+    test.identical( got, expected );
 
     // logger.log( 'got\n',_.toStr( got,{ levels : 3 } ) );
 
@@ -592,10 +594,10 @@ function changesApply( test )
     var changes = changesArray[ s ];
     var dstData = _.cloneJust( _dstData );
 
-    logger.log( s + ' changes\n',_.toStr( changes,{ levels : 3 } ) );
+    logger.log( s + ' changes\n', _.toStr( changes, { levels : 3 } ) );
 
-    var got = _.changesApply( changes,dstData,srcData );
-    test.identical( got,expected );
+    var got = _.changesApply( changes, dstData, srcData );
+    test.identical( got, expected );
 
   }
 
@@ -613,15 +615,15 @@ let Self =
 
   context :
   {
-    changesArray : changesArray,
+    changesArray,
   },
 
   tests :
   {
 
-    changesExtend : changesExtend,
-    changesSelect : changesSelect,
-    changesApply : changesApply,
+    changesExtend,
+    changesSelect,
+    changesApply,
 
   },
 
