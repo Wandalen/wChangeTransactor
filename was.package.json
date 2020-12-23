@@ -16,7 +16,7 @@
   {
     "url" : "https://github.com/Wandalen/wChangeTransactor/issues"
   },
-  "dependencies" : { "wTools" : "", "wProto" : "" },
+  "dependencies" : { "wTools" : "", "wProto" : "", "wcloner" : "" },
   "devDependencies" : { "wTesting" : "", "wchangetransactor" : "file:.", "eslint" : "7.1.0" },
   "keywords" : [ "wTools" ]
 }

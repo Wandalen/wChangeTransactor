@@ -475,8 +475,6 @@ function changesSelect( test )
     var changes = changesArray[ s ];
     var expected = _.cloneJust( expectedArray[ s ] );
     var dstData = _.cloneJust( _dstData );
-    // var expected = _.mapShallowClone( expectedArray[ s ] );
-    // var expected = _.mapShallowClone( _dstData );
 
     logger.log( s + ' changes\n', _.toStr( changes, { levels : 3 } ) );
 

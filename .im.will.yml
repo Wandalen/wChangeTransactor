@@ -7,6 +7,9 @@ submodule :
   wProto :
     path : npm:///wProto
     enabled : 0 # submodule
+  wCloner :
+    path : npm:///wcloner
+    enabled : 0 # submodule
   wchangetransactor :
     path : hd://.
     enabled : 0 # submodule
