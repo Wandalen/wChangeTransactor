@@ -25,6 +25,6 @@ var changes =
   b : true,
 }
 
-var got = _.changesApply( changes,dst,src );
+var got = _.changesApply( changes, dst, src );
 
 console.log( got );

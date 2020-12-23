@@ -1,4 +1,5 @@
-(function _Changes_s_() {
+(function _Changes_s_()
+{
 
 'use strict';
 
@@ -41,7 +42,7 @@ function changesExtend( dst )
   {
     var src = arguments[ a ];
 
-    _changesExtend( dst,src )
+    _changesExtend( dst, src )
 
   }
 
@@ -59,7 +60,7 @@ function changesExtend( dst )
  * @module Tools/base/ChangeTransactor
 */
 
-function _changesExtend( dst,src )
+function _changesExtend( dst, src )
 {
 
   _.assert( arguments.length === 2 );
@@ -100,11 +101,11 @@ function _changesExtend( dst,src )
     {
 
       if( _.objectIs( dst[ s ] ) )
-      dst[ s ] = _changesExtend( dst[ s ],src[ s ] );
+      dst[ s ] = _changesExtend( dst[ s ], src[ s ] );
       else if( dst[ s ] === undefined )
-      dst[ s ] = _changesExtend( Object.create( null ),src[ s ] );
+      dst[ s ] = _changesExtend( Object.create( null ), src[ s ] );
       else if( _.arrayIs( dst[ s ] ) )
-      dst[ s ].push( _changesExtend( Object.create( null ),src[ s ] ) );
+      dst[ s ].push( _changesExtend( Object.create( null ), src[ s ] ) );
       else _.assert( 0, 'unknown dst type' );
 
     }
@@ -127,7 +128,7 @@ function _changesExtend( dst,src )
  * @module Tools/base/ChangeTransactor
 */
 
-function changesSelect( changes,src,options )
+function changesSelect( changes, src, options )
 {
   var options = options || Object.create( null );
   var result = Object.create( null );
@@ -138,11 +139,11 @@ function changesSelect( changes,src,options )
     /*onSelect : function(){},*/
   }
 
-  _.assertMapHasOnly( options,optionsDefault );
-  _.mapSupplement( options,optionsDefault );
+  _.assertMapHasOnly( options, optionsDefault );
+  _.mapSupplement( options, optionsDefault );
   _.assert( _.objectIs( changes ) );
 
-  result = _changesSelectFromContainer( result,src,changes,options );
+  result = _changesSelectFromContainer( result, src, changes, options );
 
   return result;
 }
@@ -160,18 +161,23 @@ function changesSelect( changes,src,options )
  * @module Tools/base/ChangeTransactor
 */
 
-function _changesSelectFromContainer( resultContainer,srcContainer,changes,options )
+function _changesSelectFromContainer( /* resultContainer, srcContainer, changes, options */ )
 {
+
+  let resultContainer = arguments[ 0 ];
+  let srcContainer = arguments[ 1 ];
+  let changes = arguments[ 2 ];
+  let options = arguments[ 3 ];
 
   _.assert( arguments.length === 4 );
   _.assert( _.objectIs( changes ) );
   _.assert( _.objectIs( resultContainer ) );
 
-  for( var n in changes )
+  for( let n in changes )
   {
 
-    var change = changes[ n ];
-    resultContainer = _changesSelectFromTerminal( resultContainer,srcContainer,n,change,options );
+    let change = changes[ n ];
+    resultContainer = _changesSelectFromTerminal( resultContainer, srcContainer, n, change, options );
 
   }
 
@@ -192,8 +198,14 @@ function _changesSelectFromContainer( resultContainer,srcContainer,changes,optio
  * @module Tools/base/ChangeTransactor
 */
 
-function _changesSelectFromTerminal( resultContainer,srcContainer,name,change,options )
+function _changesSelectFromTerminal( /* resultContainer, srcContainer, name, change, options */ )
 {
+
+  let resultContainer = arguments[ 0 ];
+  let srcContainer = arguments[ 1 ];
+  let name = arguments[ 2 ];
+  let change = arguments[ 3 ];
+  let options = arguments[ 4 ];
 
   _.assert( arguments.length === 5 );
   _.assert( change !== undefined );
@@ -205,7 +217,7 @@ function _changesSelectFromTerminal( resultContainer,srcContainer,name,change,op
 
     if( change )
     {
-      resultContainer[ name ] = _changesSelectingClone( resultContainer[ name ],srcContainer[ name ] );
+      resultContainer[ name ] = _changesSelectingClone( resultContainer[ name ], srcContainer[ name ] );
     }
     else
     {
@@ -228,14 +240,14 @@ function _changesSelectFromTerminal( resultContainer,srcContainer,name,change,op
     {
       resultContainer[ name ] = Object.create( null );
     }
-    resultContainer[ name ] = _changesSelectFromContainer( resultContainer[ name ],srcContainer[ name ],change,options );
+    resultContainer[ name ] = _changesSelectFromContainer( resultContainer[ name ], srcContainer[ name ], change, options );
   }
   else if( _.arrayIs( change ) )
   {
     for( var c = 0 ; c < change.length ; c++ )
-    resultContainer = _changesSelectFromTerminal( resultContainer,srcContainer,name,change[ c ],options );
+    resultContainer = _changesSelectFromTerminal( resultContainer, srcContainer, name, change[ c ], options );
   }
-  else _.assert( 0,'Strange changes map' );
+  else _.assert( 0, 'Strange changes map' );
 
   return resultContainer;
 }
@@ -253,14 +265,20 @@ function _changesSelectFromTerminal( resultContainer,srcContainer,name,change,op
  * @module Tools/base/ChangeTransactor
 */
 
-function changesApply( changes,dst,src,options )
+function changesApply( /* changes, dst, src, options */ )
 {
-  var options = options || Object.create( null );
+
+  let changes = arguments[ 0 ];
+  let dst = arguments[ 1 ];
+  let src = arguments[ 2 ];
+  let options = arguments[ 3 ];
+
+  options = options || Object.create( null );
 
   _.assert( _.objectIs( dst ) );
   _.assert( 3 <= arguments.length && arguments.length <= 4 );
 
-  return _changesApply( changes,dst,src,options );
+  return _changesApply( changes, dst, src, options );
 }
 
 //
@@ -276,8 +294,12 @@ function changesApply( changes,dst,src,options )
  * @module Tools/base/ChangeTransactor
 */
 
-function _changesApply( changes,dst,src,options )
+function _changesApply( /* changes, dst, src, options */ )
 {
+  let changes = arguments[ 0 ];
+  let dst = arguments[ 1 ];
+  let src = arguments[ 2 ];
+  let options = arguments[ 3 ];
 
   _.assert( arguments.length === 4 );
 
@@ -286,7 +308,7 @@ function _changesApply( changes,dst,src,options )
 
     if( changes )
     {
-      return _changesApplyingSet( dst,src );
+      return _changesApplyingSet( dst, src );
     }
     else
     {
@@ -297,26 +319,26 @@ function _changesApply( changes,dst,src,options )
   }
   else if( _.arrayIs( changes ) )
   {
-    var val = dst;
-    for( var c = 0 ; c < changes.length ; c++ )
+    var val0 = dst;
+    for( let c = 0 ; c < changes.length ; c++ )
     {
-      val = _changesApply( changes[ c ],val,src,options );
-      if( c+1 < changes.length && val === undefined )
+      val0 = _changesApply( changes[ c ], val0, src, options );
+      if( c+1 < changes.length && val0 === undefined )
       {
         debugger;
-        val = _.entityMakeConstructing( dst );
+        val0 = _.entityMakeConstructing( dst );
       }
     }
-    dst = val;
+    dst = val0;
   }
   else if( _.objectIs( changes ) )
   {
 
     _.assert( !!dst );
-    for( var c in changes )
+    for( let c in changes )
     {
 
-      var val = _changesApply( changes[ c ],dst[ c ],src[ c ],options );
+      var val = _changesApply( changes[ c ], dst[ c ], src[ c ], options );
       if( val !== undefined )
       dst[ c ] = val;
       else
@@ -325,7 +347,7 @@ function _changesApply( changes,dst,src,options )
     }
 
   }
-  else _.assert( 0,'Strange changes map' );
+  else _.assert( 0, 'Strange changes map' );
 
   return dst;
 }
@@ -340,7 +362,7 @@ function _changesApply( changes,dst,src,options )
  * @module Tools/base/ChangeTransactor
 */
 
-function _changesSelectingClone( dst,src )
+function _changesSelectingClone( dst, src )
 {
 
   _.assert( arguments.length === 2, 'Expects exactly two arguments' );
@@ -350,7 +372,7 @@ function _changesSelectingClone( dst,src )
 
   var result = _.cloneData
   ({
-    src : src,
+    src,
     // copyingBuffers : 1,
   });
 
@@ -367,7 +389,7 @@ function _changesSelectingClone( dst,src )
  * @module Tools/base/ChangeTransactor
 */
 
-function _changesApplyingSet( dst,src )
+function _changesApplyingSet( dst, src )
 {
 
   _.assert( arguments.length === 2, 'Expects exactly two arguments' );
@@ -379,8 +401,8 @@ function _changesApplyingSet( dst,src )
     return dst.copyCustom
     ({
 
-      dst : dst,
-      src : src,
+      dst,
+      src,
 
       copyingComposes : 3,
       copyingAggregates : 1,
@@ -407,18 +429,18 @@ function _changesApplyingSet( dst,src )
 var Proto =
 {
 
-  changesExtend : changesExtend,
-  _changesExtend : _changesExtend,
+  changesExtend,
+  _changesExtend,
 
-  changesSelect : changesSelect,
-  _changesSelectFromContainer : _changesSelectFromContainer,
-  _changesSelectFromTerminal : _changesSelectFromTerminal,
+  changesSelect,
+  _changesSelectFromContainer,
+  _changesSelectFromTerminal,
 
-  changesApply : changesApply,
-  _changesApply : _changesApply,
+  changesApply,
+  _changesApply,
 
-  _changesSelectingClone : _changesSelectingClone,
-  _changesApplyingSet : _changesApplyingSet,
+  _changesSelectingClone,
+  _changesApplyingSet,
 
 };
 
@@ -427,7 +449,6 @@ _.mapExtend( Self, Proto );
 // --
 // export
 // --
-
 
 
 if( typeof module !== 'undefined' )
