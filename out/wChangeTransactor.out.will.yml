@@ -6,8 +6,8 @@ consistency:
     hash: 6da888128393eb816855e3c7eff1ae27
     size: 1973
   ../.im.will.yml: &ref_1
-    hash: 1c0276b4f5c8d2f7f2c55623f0b67497
-    size: 5063
+    hash: 7f29212cdf85e46127734eacbe7bf0f7
+    size: 5129
 module:
   wChangeTransactor.out:
     about:
@@ -169,6 +169,10 @@ module:
         enabled: 0
       wProto:
         path: 'npm:///wProto'
+        autoExporting: 0
+        enabled: 0
+      wCloner:
+        path: 'npm:///wcloner'
         autoExporting: 0
         enabled: 0
       wchangetransactor:
@@ -917,6 +921,10 @@ module:
         path: 'npm:///wProto'
         autoExporting: 0
         enabled: 0
+      wCloner:
+        path: 'npm:///wcloner'
+        autoExporting: 0
+        enabled: 0
       wchangetransactor:
         path: 'hd://.'
         autoExporting: 0
@@ -1470,5 +1478,5 @@ module:
         hash: 6da888128393eb816855e3c7eff1ae27
         size: 1973
       ../.im.will.yml:
-        hash: 1c0276b4f5c8d2f7f2c55623f0b67497
-        size: 5063
+        hash: 7f29212cdf85e46127734eacbe7bf0f7
+        size: 5129
