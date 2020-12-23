@@ -1,4 +1,5 @@
-( function _ChangeTransactor_s_() {
+( function _ChangeTransactor_s_()
+{
 
 'use strict';
 
@@ -153,15 +154,15 @@ var Functors =
 var Supplement =
 {
 
-  changeBegin : changeBegin,
-  changeEnd : changeEnd,
-  changed : changed,
-  _changed : _changed,
+  changeBegin,
+  changeEnd,
+  changed,
+  _changed,
 
-  Composes : Composes,
-  Restricts : Restricts,
-  Statics : Statics,
-  Events : Events,
+  Composes,
+  Restricts,
+  Statics,
+  Events,
 
 }
 
@@ -170,7 +171,7 @@ var Supplement =
 let Self =
 {
 
-  onMixinApply : onMixinApply,
+  onMixinApply,
 
   functors : Functors,
   supplement : Supplement,
