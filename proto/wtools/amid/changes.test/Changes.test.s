@@ -384,7 +384,7 @@ function changesExtend( test )
   {
     var sample = samples[ s ];
     var expected = sample.expected;
-    var extend = _.longShrinkWithIndices( changesArray, sample.extend )
+    var extend = _.longOnlyWithIndices( changesArray, sample.extend )
     var args = _.arrayAppendArray( [ {} ], extend );
     var got = _.changesExtend.apply( _, args );
 
