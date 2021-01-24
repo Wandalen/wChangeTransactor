@@ -1,22 +1,37 @@
 {
-  "name" : "wchangetransactor",
-  "version" : "0.3.234",
-  "description" : "Still sketch. Mixin to add the ability to track changes of an object, to reflect changes in a data structure and to make possible to apply the changes to another object. Use the module to mirror object's changes somehow elsewhere, for example on server-side or client-side.",
-  "author" : "Kostiantyn Wandalen <wanalen@01.school>",
-  "license" : "MIT",
-  "main" : "proto/wtools/amid/changes/ChangeTransactor.s",
-  "files" : [ "proto/wtools/amid/changes", "proto/wtools/Tools.s", "out" ],
-  "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen proto" },
-  "repository" :
-  {
-    "type" : "git",
-    "url" : "https://github.com/Wandalen/wChangeTransactor.git"
+  "name": "wchangetransactor",
+  "version": "0.3.235",
+  "description": "Still sketch. Mixin to add the ability to track changes of an object, to reflect changes in a data structure and to make possible to apply the changes to another object. Use the module to mirror object's changes somehow elsewhere, for example on server-side or client-side.",
+  "author": "Kostiantyn Wandalen <wanalen@01.school>",
+  "license": "MIT",
+  "main": "proto/wtools/amid/changes/ChangeTransactor.s",
+  "files": [
+    "proto/wtools/amid/changes",
+    "proto/wtools/Tools.s",
+    "out"
+  ],
+  "scripts": {
+    "test": "wtest .run 'proto/**' rapidity:-3",
+    "docgen": "wdocgen proto"
   },
-  "bugs" :
-  {
-    "url" : "https://github.com/Wandalen/wChangeTransactor/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wandalen/wChangeTransactor.git"
   },
-  "dependencies" : { "wTools" : "alpha", "wProto" : "alpha", "wcloner" : "alpha" },
-  "devDependencies" : { "wchangetransactor" : "file:.", "eslint" : "7.1.0", "wTesting" : "alpha" },
-  "keywords" : [ "wTools" ]
+  "bugs": {
+    "url": "https://github.com/Wandalen/wChangeTransactor/issues"
+  },
+  "dependencies": {
+    "wTools": "alpha",
+    "wProto": "alpha",
+    "wcloner": "alpha"
+  },
+  "devDependencies": {
+    "eslint": "7.1.0",
+    "wTesting": "alpha",
+    "wchangetransactor": "file:."
+  },
+  "keywords": [
+    "wTools"
+  ]
 }
