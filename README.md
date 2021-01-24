@@ -8,7 +8,7 @@ Still sketch. Mixin to add the ability to track changes of an object, to reflect
 git clone https://github.com/Wandalen/wChangeTransactor
 cd wChangeTransactor
 npm install
-node sample/Sample.s
+node sample/trivial/Sample.s
 ```
 
 ## To add to your project
