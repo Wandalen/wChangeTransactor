@@ -493,113 +493,375 @@ function changesApply( test )
 {
   var self = this;
 
+  test.case = 'bool changes in map, first level, only true';
   var srcData =
   {
     a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
     b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
     c : { c1 : 'src.c1', c2 : 'src.c2', c3 : 'src.c3', c4 : 'src.c4' },
     dsrc : { d1 : 'src.d1', d2 : 'src.d2', d3 : 'src.d3', d4 : 'src.d4' },
-  }
-
-  var _dstData =
+  };
+  var dstData =
   {
     a : { a1 : 'dst.a1', a2 : 'dst.a2', a3 : 'dst.a3', a4 : 'dst.a4' },
     b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
     c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
     ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-  }
-
-  var expectedArray =
-  [
-
-    {
-      a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
-      b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
-      c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
-      ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-    },
-
-    {
-      c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
-      ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-    },
-
-    {
-      a : { a1 : 'dst.a1', a2 : 'src.a2', a4 : 'dst.a4' },
-      b : [ 'dst.b0', undefined, 'src.b2', 'dst.b3', 'dst.b4' ],
-      c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
-      ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-    },
-
-    {
-      a : { a1 : 'dst.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'dst.a4' },
-      b : [ 'dst.b0', 'src.b1', 'src.b2', 'dst.b3', 'dst.b4' ],
-      c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
-      ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-    },
-
-    {
-      a : { a1 : 'dst.a1', a4 : 'dst.a4' },
-      b : [ 'dst.b0', undefined, undefined, 'dst.b3', 'dst.b4' ],
-      c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
-      ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-    },
-
-    {
-      a : { a3 : 'src.a3', a4 : 'dst.a4' },
-      b : [ 'dst.b0', 'src.b1', undefined, 'dst.b3', 'dst.b4' ],
-      c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
-      ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-    },
-
-    {
-      a : { a2 : 'src.a2', a4 : 'src.a4', a3 : 'src.a3' },
-      b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
-      c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
-      ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-    },
-
-    {
-      a : { a3 : 'src.a3' },
-      b : [ undefined, 'src.b1', undefined, undefined, undefined ],
-      c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
-      ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-    },
-
-    {
-      a : { a4 : 'src.a4' },
-      b : [ 'src.b0', undefined, undefined, 'src.b3', 'src.b4' ],
-      c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
-      ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-    },
-
-    {
-      a : { a4 : 'src.a4' },
-      b : [ 'src.b0', undefined, undefined, 'src.b3', 'src.b4' ],
-      c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
-      ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-    },
-
-    {
-      c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
-      ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
-    },
-
-  ];
-
-  for( var s = 0 ; s < changesArray.length ; s++ )
+  };
+  var changes = { a : true, b : true };
+  var expected =
   {
-    var expected = _.cloneJust( expectedArray[ s ] );
-    var changes = changesArray[ s ];
-    var dstData = _.cloneJust( _dstData );
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var got = _.changesApply( changes, dstData, srcData );
+  test.identical( got, expected );
 
-    logger.log( s + ' changes\n', _.toStr( changes, { levels : 3 } ) );
+  /* */
 
-    var got = _.changesApply( changes, dstData, srcData );
-    test.identical( got, expected );
+  test.case = 'bool changes in map, first level, only false';
+  var srcData =
+  {
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'src.c1', c2 : 'src.c2', c3 : 'src.c3', c4 : 'src.c4' },
+    dsrc : { d1 : 'src.d1', d2 : 'src.d2', d3 : 'src.d3', d4 : 'src.d4' },
+  };
+  var dstData =
+  {
+    a : { a1 : 'dst.a1', a2 : 'dst.a2', a3 : 'dst.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var changes = { a : false, b : false };
+  var expected =
+  {
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var got = _.changesApply( changes, dstData, srcData );
+  test.identical( got, expected );
 
-  }
+  /* */
 
+  test.case = 'changes in maps, second level, different results';
+  var srcData =
+  {
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'src.c1', c2 : 'src.c2', c3 : 'src.c3', c4 : 'src.c4' },
+    dsrc : { d1 : 'src.d1', d2 : 'src.d2', d3 : 'src.d3', d4 : 'src.d4' },
+  };
+  var dstData =
+  {
+    a : { a1 : 'dst.a1', a2 : 'dst.a2', a3 : 'dst.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var changes =
+  {
+    a : { a2 : true, a3 : false },
+    b : { 1 : false, 2 : true },
+  };
+  var expected =
+  {
+    a : { a1 : 'dst.a1', a2 : 'src.a2', a4 : 'dst.a4' },
+    b : [ 'dst.b0', undefined, 'src.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var got = _.changesApply( changes, dstData, srcData );
+  test.identical( got, expected );
+
+  /* */
+
+  test.case = 'changes in maps, second level, only true';
+  var srcData =
+  {
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'src.c1', c2 : 'src.c2', c3 : 'src.c3', c4 : 'src.c4' },
+    dsrc : { d1 : 'src.d1', d2 : 'src.d2', d3 : 'src.d3', d4 : 'src.d4' },
+  };
+  var dstData =
+  {
+    a : { a1 : 'dst.a1', a2 : 'dst.a2', a3 : 'dst.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var changes =
+  {
+    a : { a2 : true, a3 : true },
+    b : { 1 : true, 2 : true },
+  };
+  var expected =
+  {
+    a : { a1 : 'dst.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'src.b1', 'src.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var got = _.changesApply( changes, dstData, srcData );
+  test.identical( got, expected );
+
+  /* */
+
+  test.case = 'changes in maps, second level, only false';
+  var srcData =
+  {
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'src.c1', c2 : 'src.c2', c3 : 'src.c3', c4 : 'src.c4' },
+    dsrc : { d1 : 'src.d1', d2 : 'src.d2', d3 : 'src.d3', d4 : 'src.d4' },
+  };
+  var dstData =
+  {
+    a : { a1 : 'dst.a1', a2 : 'dst.a2', a3 : 'dst.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var changes =
+  {
+    a : { a2 : false, a3 : false },
+    b : { 1 : false, 2 : false },
+  };
+  var expected =
+  {
+    a : { a1 : 'dst.a1', a4 : 'dst.a4' },
+    b : [ 'dst.b0', undefined, undefined, 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var got = _.changesApply( changes, dstData, srcData );
+  test.identical( got, expected );
+
+  /* */
+
+  test.case = 'complex changes, arrays in second level';
+  var srcData =
+  {
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'src.c1', c2 : 'src.c2', c3 : 'src.c3', c4 : 'src.c4' },
+    dsrc : { d1 : 'src.d1', d2 : 'src.d2', d3 : 'src.d3', d4 : 'src.d4' },
+  };
+  var dstData =
+  {
+    a : { a1 : 'dst.a1', a2 : 'dst.a2', a3 : 'dst.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var changes =
+  {
+    a :
+    [
+      { a2 : true, a3 : false },
+      { a1 : false, a2 : false, a3 : true },
+    ],
+    b :
+    [
+      { 1 : false, 2 : true },
+      { 1 : true, 2 : false },
+    ],
+  };
+  var expected =
+  {
+    a : { a3 : 'src.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'src.b1', undefined, 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var got = _.changesApply( changes, dstData, srcData );
+  test.identical( got, expected );
+
+  /* */
+
+  test.case = 'complex changes, single array in second level';
+  var srcData =
+  {
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'src.c1', c2 : 'src.c2', c3 : 'src.c3', c4 : 'src.c4' },
+    dsrc : { d1 : 'src.d1', d2 : 'src.d2', d3 : 'src.d3', d4 : 'src.d4' },
+  };
+  var dstData =
+  {
+    a : { a1 : 'dst.a1', a2 : 'dst.a2', a3 : 'dst.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var changes =
+  {
+    a :
+    [
+      false,
+      { a2 : true, a3 : false, a4 : true },
+      { a3 : true },
+    ],
+  };
+  var expected =
+  {
+    a : { a1 : 'dst.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var got = _.changesApply( changes, dstData, srcData );
+  test.identical( got, expected );
+
+  /* */
+
+  test.case = 'complex changes, arrays in second level';
+  var srcData =
+  {
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'src.c1', c2 : 'src.c2', c3 : 'src.c3', c4 : 'src.c4' },
+    dsrc : { d1 : 'src.d1', d2 : 'src.d2', d3 : 'src.d3', d4 : 'src.d4' },
+  };
+  var dstData =
+  {
+    a : { a1 : 'dst.a1', a2 : 'dst.a2', a3 : 'dst.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var changes =
+  {
+    a :
+    [
+      false,
+      { a2 : true, a3 : false },
+      { a1 : false, a2 : false, a3 : true },
+    ],
+    b :
+    [
+      false,
+      { 1 : false, 2 : true, 3 : false },
+      { 1 : true, 2 : false },
+    ],
+  };
+  var expected =
+  {
+    a : { a3 : 'src.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'src.b1', undefined, undefined, 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var got = _.changesApply( changes, dstData, srcData );
+  test.identical( got, expected );
+
+  /* */
+
+  test.case = 'complex changes, arrays in second level';
+  var srcData =
+  {
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'src.c1', c2 : 'src.c2', c3 : 'src.c3', c4 : 'src.c4' },
+    dsrc : { d1 : 'src.d1', d2 : 'src.d2', d3 : 'src.d3', d4 : 'src.d4' },
+  };
+  var dstData =
+  {
+    a : { a1 : 'dst.a1', a2 : 'dst.a2', a3 : 'dst.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var changes =
+  {
+    a :
+    [
+      true,
+      { a2 : true, a3 : false },
+      { a1 : false, a2 : false, a3 : true },
+    ],
+    b :
+    [
+      true,
+      { 1 : false, 2 : true },
+      { 1 : true, 2 : false },
+    ],
+  };
+  var expected =
+  {
+    a : { a4 : 'src.a4' },
+    b : [ 'src.b0', undefined, undefined, 'src.b3', 'src.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var got = _.changesApply( changes, dstData, srcData );
+  test.identical( got, expected );
+
+  /* */
+
+  test.case = 'complex changes, arrays in second level';
+  var srcData =
+  {
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'src.c1', c2 : 'src.c2', c3 : 'src.c3', c4 : 'src.c4' },
+    dsrc : { d1 : 'src.d1', d2 : 'src.d2', d3 : 'src.d3', d4 : 'src.d4' },
+  };
+  var dstData =
+  {
+    a : { a1 : 'dst.a1', a2 : 'dst.a2', a3 : 'dst.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var changes =
+  {
+    a : [ false, true ],
+    b : [ false, true ],
+  };
+  var expected =
+  {
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var got = _.changesApply( changes, dstData, srcData );
+  test.identical( got, expected );
+
+  /* */
+
+  test.case = 'complex changes, arrays in second level';
+  var srcData =
+  {
+    a : { a1 : 'src.a1', a2 : 'src.a2', a3 : 'src.a3', a4 : 'src.a4' },
+    b : [ 'src.b0', 'src.b1', 'src.b2', 'src.b3', 'src.b4' ],
+    c : { c1 : 'src.c1', c2 : 'src.c2', c3 : 'src.c3', c4 : 'src.c4' },
+    dsrc : { d1 : 'src.d1', d2 : 'src.d2', d3 : 'src.d3', d4 : 'src.d4' },
+  };
+  var dstData =
+  {
+    a : { a1 : 'dst.a1', a2 : 'dst.a2', a3 : 'dst.a3', a4 : 'dst.a4' },
+    b : [ 'dst.b0', 'dst.b1', 'dst.b2', 'dst.b3', 'dst.b4' ],
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var changes =
+  {
+    a : [ true, false ],
+    b : [ true, false ],
+  };
+  var expected =
+  {
+    c : { c1 : 'dst.c1', c2 : 'dst.c2', c3 : 'dst.c3', c4 : 'dst.c4' },
+    ddst : { d1 : 'dst.d1', d2 : 'dst.d2', d3 : 'dst.d3', d4 : 'dst.d4' },
+  };
+  var got = _.changesApply( changes, dstData, srcData );
+  test.identical( got, expected );
 }
 
 // --
