@@ -339,11 +339,15 @@ function _changesApply( /* changes, dst, src, options */ )
     {
 
       var val = _changesApply( changes[ c ], dst[ c ], src[ c ], options );
-      if( val !== undefined )
-      dst[ c ] = val;
-      else
+      if( val === undefined )
       delete dst[ c ];
+      else
+      dst[ c ] = val;
 
+      // if( val !== undefined )
+      // dst[ c ] = val;
+      // else
+      // delete dst[ c ];
     }
 
   }
