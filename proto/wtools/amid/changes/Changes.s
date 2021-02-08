@@ -326,7 +326,7 @@ function _changesApply( /* changes, dst, src, options */ )
       if( c+1 < changes.length && val0 === undefined )
       {
         debugger;
-        val0 = _.entity.shallowClone( dst );
+        val0 = _.entity.cloneShallow( dst );
       }
     }
     dst = val0;
