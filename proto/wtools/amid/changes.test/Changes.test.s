@@ -476,12 +476,12 @@ function changesSelect( test )
     var expected = _.cloneJust( expectedArray[ s ] );
     var dstData = _.cloneJust( _dstData );
 
-    logger.log( s + ' changes\n', _.toStr( changes, { levels : 3 } ) );
+    logger.log( s + ' changes\n', _.entity.exportString( changes, { levels : 3 } ) );
 
     var got = _.changesSelect( changes, srcData );
     test.identical( got, expected );
 
-    // logger.log( 'got\n',_.toStr( got,{ levels : 3 } ) );
+    // logger.log( 'got\n',_.entity.exportString( got,{ levels : 3 } ) );
 
   }
 
