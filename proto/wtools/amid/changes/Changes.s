@@ -221,7 +221,6 @@ function _changesSelectFromTerminal( /* resultContainer, srcContainer, name, cha
     }
     else
     {
-      debugger;
       delete resultContainer[ name ];
     }
 
@@ -312,7 +311,6 @@ function _changesApply( /* changes, dst, src, options */ )
     }
     else
     {
-      debugger;
       return;
     }
 
@@ -325,7 +323,6 @@ function _changesApply( /* changes, dst, src, options */ )
       val0 = _changesApply( changes[ c ], val0, src, options );
       if( c+1 < changes.length && val0 === undefined )
       {
-        debugger;
         val0 = _.entity.cloneShallow( dst );
       }
     }
