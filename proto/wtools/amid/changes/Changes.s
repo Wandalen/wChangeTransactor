@@ -18,7 +18,7 @@ const _ = _global_.wTools;
 var _ArraySlice = Array.prototype.slice;
 var _FunctionBind = Function.prototype.bind;
 var _ObjectToString = Object.prototype.toString;
-var _ObjectHasOwnProperty = Object.hasOwnProperty;
+const _ObjectHasOwnProperty = Object.hasOwnProperty;
 // var __assert = _.assert;
 
 // --
@@ -427,7 +427,7 @@ function _changesApplyingSet( dst, src )
 // declare
 // --
 
-var Proto =
+const Proto =
 {
 
   changesExtend,
