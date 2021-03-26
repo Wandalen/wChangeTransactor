@@ -8,7 +8,7 @@ if( typeof module !== 'undefined' )
 
   require( '../../../wtools/Tools.s' );
 
-  let _ = _global_.wTools;
+  const _ = _global_.wTools;
 
   _.include( 'wTesting' );
 
@@ -17,7 +17,7 @@ if( typeof module !== 'undefined' )
 
 }
 
-let _ = _global_.wTools;
+const _ = _global_.wTools;
 
 // --
 // common
@@ -868,7 +868,7 @@ function changesApply( test )
 // declare
 // --
 
-let Self =
+const Proto =
 {
 
   name : 'Tools.mid.Changes',
@@ -892,7 +892,7 @@ let Self =
 
 //
 
-Self = wTestSuite( Self );
+const Self = wTestSuite( Proto );
 if( typeof module !== 'undefined' && !module.parent )
 wTester.test( Self.name );
 

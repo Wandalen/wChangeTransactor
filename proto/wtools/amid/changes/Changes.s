@@ -12,8 +12,8 @@ if( typeof module !== 'undefined' )
 
 //
 
-let Self = _global_.wTools;
-let _ = _global_.wTools;
+const Self = _global_.wTools;
+const _ = _global_.wTools;
 
 var _ArraySlice = Array.prototype.slice;
 var _FunctionBind = Function.prototype.bind;
@@ -139,7 +139,7 @@ function changesSelect( changes, src, options )
     /*onSelect : function(){},*/
   }
 
-  _.assertMapHasOnly( options, optionsDefault );
+  _.map.assertHasOnly( options, optionsDefault );
   _.mapSupplement( options, optionsDefault );
   _.assert( _.objectIs( changes ) );
 
