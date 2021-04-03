@@ -2,10 +2,13 @@ format: outwillfile-2.0
 root:
   - wChangeTransactor.out
 consistency:
-  ../.ex.will.yml: &ref_0
+  wChangeTransactor.out.will.yml: &ref_0
+    hash: 8bf09b26ece5c1992fdf9315dfcebc83
+    size: 39391
+  ../.ex.will.yml: &ref_1
     hash: 6da888128393eb816855e3c7eff1ae27
     size: 1973
-  ../.im.will.yml: &ref_1
+  ../.im.will.yml: &ref_2
     hash: 4f9de7ab6a1924dbf411be0009db7260
     size: 5118
 module:
@@ -20,18 +23,18 @@ module:
         somehow elsewhere, for example on server-side or client-side.
       enabled: 1
       version: 0.4.0
-      interpreters: &ref_2
+      interpreters:
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
+      keywords:
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: &ref_4
+      contributors:
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wchangetransactor
-      npm.scripts: &ref_5
+      npm.scripts:
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -707,6 +710,24 @@ module:
           content: prime
         inherit:
           - files.transpile
+      exported.proto.export:
+        opts:
+          filePath: 'reflector::exported.proto.export'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
+      exported.files.proto.export:
+        opts:
+          filePath: 'reflector::exported.files.proto.export'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
     build:
       proto.export:
         steps:
@@ -795,8 +816,9 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      wChangeTransactor.out.will.yml: *ref_0
+      ../.ex.will.yml: *ref_1
+      ../.im.will.yml: *ref_2
   ../:
     about:
       name: wChangeTransactor
@@ -808,13 +830,20 @@ module:
         somehow elsewhere, for example on server-side or client-side.
       enabled: 1
       version: 0.4.0
-      interpreters: *ref_2
-      keywords: *ref_3
+      interpreters:
+        - njs >= 10.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      keywords:
+        - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: *ref_4
+      contributors:
+        - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wchangetransactor
-      npm.scripts: *ref_5
+      npm.scripts:
+        test: wtest .run proto/**
+        docgen: wdocgen .build proto
     path:
       module.willfiles:
         criterion:
@@ -1492,3 +1521,6 @@ module:
       ../.im.will.yml:
         hash: 4f9de7ab6a1924dbf411be0009db7260
         size: 5118
+      wChangeTransactor.out.will.yml:
+        hash: 8bf09b26ece5c1992fdf9315dfcebc83
+        size: 39391
