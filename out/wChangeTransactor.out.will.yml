@@ -2,15 +2,12 @@ format: outwillfile-2.0
 root:
   - wChangeTransactor.out
 consistency:
-  wChangeTransactor.out.will.yml: &ref_0
-    hash: d5cf677996ecc635e70e01dfcfd4e2f1
-    size: 38980
-  ../.ex.will.yml: &ref_1
+  ../.ex.will.yml: &ref_0
     hash: 6da888128393eb816855e3c7eff1ae27
     size: 1973
-  ../.im.will.yml: &ref_2
-    hash: 7f29212cdf85e46127734eacbe7bf0f7
-    size: 5129
+  ../.im.will.yml: &ref_1
+    hash: 4f9de7ab6a1924dbf411be0009db7260
+    size: 5118
 module:
   wChangeTransactor.out:
     about:
@@ -23,18 +20,18 @@ module:
         somehow elsewhere, for example on server-side or client-side.
       enabled: 1
       version: 0.4.0
-      interpreters:
+      interpreters: &ref_2
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords:
+      keywords: &ref_3
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
+      contributors: &ref_4
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wchangetransactor
-      npm.scripts:
+      npm.scripts: &ref_5
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -65,7 +62,7 @@ module:
       download:
         criterion:
           predefined: 1
-        path: ../
+        path: ..
       repository:
         path: 'git+https:///github.com/Wandalen/wChangeTransactor.git'
       bugtracker:
@@ -142,6 +139,10 @@ module:
           raw: compiled
           content: prime
         path: '{path::out.*=}/source/Index.s'
+      npm.proto.entry:
+        path:
+          - ../proto/wtools/amid/changes/ChangeTransactor.s
+          - ../proto/node_modules/wchangetransactor
       exported.dir.proto.export:
         criterion:
           generated: 1
@@ -706,24 +707,6 @@ module:
           content: prime
         inherit:
           - files.transpile
-      exported.proto.export:
-        opts:
-          filePath: 'reflector::exported.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
-      exported.files.proto.export:
-        opts:
-          filePath: 'reflector::exported.files.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
     build:
       proto.export:
         steps:
@@ -812,9 +795,8 @@ module:
           content: proto
           export: 1
     consistency:
-      wChangeTransactor.out.will.yml: *ref_0
-      ../.ex.will.yml: *ref_1
-      ../.im.will.yml: *ref_2
+      ../.ex.will.yml: *ref_0
+      ../.im.will.yml: *ref_1
   ../:
     about:
       name: wChangeTransactor
@@ -826,20 +808,13 @@ module:
         somehow elsewhere, for example on server-side or client-side.
       enabled: 1
       version: 0.4.0
-      interpreters:
-        - njs >= 10.0.0
-        - chrome >= 60.0.0
-        - firefox >= 60.0.0
-      keywords:
-        - wTools
+      interpreters: *ref_2
+      keywords: *ref_3
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
-        - Kostiantyn Wandalen <wanalen@01.school>
+      contributors: *ref_4
       npm.name: wchangetransactor
-      npm.scripts:
-        test: wtest .run proto/**
-        docgen: wdocgen .build proto
+      npm.scripts: *ref_5
     path:
       module.willfiles:
         criterion:
@@ -868,7 +843,7 @@ module:
       download:
         criterion:
           predefined: 1
-        path: ./
+        path: .
       repository:
         path: 'git+https:///github.com/Wandalen/wChangeTransactor.git'
       bugtracker:
@@ -945,6 +920,10 @@ module:
           raw: compiled
           content: prime
         path: '{path::out.*=}/source/Index.s'
+      npm.proto.entry:
+        path:
+          - proto/wtools/amid/changes/ChangeTransactor.s
+          - proto/node_modules/wchangetransactor
     submodule:
       wTools:
         path: 'npm:///wTools'
@@ -1511,6 +1490,5 @@ module:
         hash: 6da888128393eb816855e3c7eff1ae27
         size: 1973
       ../.im.will.yml:
-        hash: 7f29212cdf85e46127734eacbe7bf0f7
-        size: 5129
-      wChangeTransactor.out.will.yml: *ref_0
+        hash: 4f9de7ab6a1924dbf411be0009db7260
+        size: 5118
