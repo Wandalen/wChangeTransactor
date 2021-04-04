@@ -1521,6 +1521,4 @@ module:
       ../.im.will.yml:
         hash: 4f9de7ab6a1924dbf411be0009db7260
         size: 5118
-      wChangeTransactor.out.will.yml:
-        hash: 8bf09b26ece5c1992fdf9315dfcebc83
-        size: 39391
+      wChangeTransactor.out.will.yml: *ref_0
