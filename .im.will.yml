@@ -79,8 +79,8 @@ path:
       raw: compiled
       content: prime
   npm.proto.entry:
-    - /pro/module/wChangeTransactor/proto/wtools/amid/changes/ChangeTransactor.s
-    - /pro/module/wChangeTransactor/proto/node_modules/wchangetransactor
+    - proto/wtools/amid/changes/ChangeTransactor.s
+    - proto/node_modules/wchangetransactor
 reflector:
   reflect.proto:
     inherit: predefined.*
