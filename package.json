@@ -1,11 +1,11 @@
 {
   "name" : "wchangetransactor",
-  "version" : "0.3.271",
+  "version" : "0.3.272",
   "description" : "Still sketch. Mixin to add the ability to track changes of an object, to reflect changes in a data structure and to make possible to apply the changes to another object. Use the module to mirror object's changes somehow elsewhere, for example on server-side or client-side.",
   "author" : "Kostiantyn Wandalen <wanalen@01.school>",
   "license" : "MIT",
   "main" : "proto/node_modules/wchangetransactor",
-  "files" : [ "proto/wtools/amid/changes", "proto/wtools/Tools.s", "out", "proto/node_modules" ],
+  "files" : [ "proto/wtools/amid/changes", "out", "proto/node_modules" ],
   "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen proto" },
   "repository" :
   {
