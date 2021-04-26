@@ -140,7 +140,7 @@ function changesSelect( changes, src, options )
   }
 
   _.map.assertHasOnly( options, optionsDefault );
-  _.mapSupplement( options, optionsDefault );
+  _.props.supplement( options, optionsDefault );
   _.assert( _.objectIs( changes ) );
 
   result = _changesSelectFromContainer( result, src, changes, options );
@@ -445,7 +445,7 @@ const Proto =
 
 };
 
-_.mapExtend( Self, Proto );
+_.props.extend( Self, Proto );
 
 // --
 // export
