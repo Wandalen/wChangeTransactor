@@ -36,7 +36,7 @@ const _ObjectHasOwnProperty = Object.hasOwnProperty;
 function changesExtend( dst )
 {
 
-  _.assert( _.objectIs( dst ) );
+  _.assert( _.object.isBasic( dst ) );
 
   for( var a = 1 ; a < arguments.length ; a++ )
   {
@@ -64,12 +64,12 @@ function _changesExtend( dst, src )
 {
 
   _.assert( arguments.length === 2 );
-  _.assert( _.objectIs( src ) );
+  _.assert( _.object.isBasic( src ) );
 
   for( var s in src )
   {
 
-    _.assert( _.objectIs( src ) || _.boolsIs( src ) );
+    _.assert( _.object.isBasic( src ) || _.boolsIs( src ) );
 
     /**/
 
@@ -97,10 +97,10 @@ function _changesExtend( dst, src )
       for( var i = 0, l = src[ s ].length ; i < l ; i++ )
       dst[ s ].push( src[ s ][ i ] );
     }
-    else if( _.objectIs( src[ s ] ) )
+    else if( _.object.isBasic( src[ s ] ) )
     {
 
-      if( _.objectIs( dst[ s ] ) )
+      if( _.object.isBasic( dst[ s ] ) )
       dst[ s ] = _changesExtend( dst[ s ], src[ s ] );
       else if( dst[ s ] === undefined )
       dst[ s ] = _changesExtend( Object.create( null ), src[ s ] );
@@ -141,7 +141,7 @@ function changesSelect( changes, src, options )
 
   _.map.assertHasOnly( options, optionsDefault );
   _.props.supplement( options, optionsDefault );
-  _.assert( _.objectIs( changes ) );
+  _.assert( _.object.isBasic( changes ) );
 
   result = _changesSelectFromContainer( result, src, changes, options );
 
@@ -170,8 +170,8 @@ function _changesSelectFromContainer( /* resultContainer, srcContainer, changes,
   let options = arguments[ 3 ];
 
   _.assert( arguments.length === 4 );
-  _.assert( _.objectIs( changes ) );
-  _.assert( _.objectIs( resultContainer ) );
+  _.assert( _.object.isBasic( changes ) );
+  _.assert( _.object.isBasic( resultContainer ) );
 
   for( let n in changes )
   {
@@ -209,7 +209,7 @@ function _changesSelectFromTerminal( /* resultContainer, srcContainer, name, cha
 
   _.assert( arguments.length === 5 );
   _.assert( change !== undefined );
-  _.assert( _.objectIs( resultContainer ) );
+  _.assert( _.object.isBasic( resultContainer ) );
   _.assert( _.strIs( name ) );
 
   if( _.boolIs( change ) )
@@ -228,11 +228,11 @@ function _changesSelectFromTerminal( /* resultContainer, srcContainer, name, cha
     _.assert( resultContainer[ name ] !== undefined );
 
   }
-  else if( _.objectIs( change ) )
+  else if( _.object.isBasic( change ) )
   {
     if( resultContainer[ name ] )
     {
-      if( !_.objectIs( resultContainer[ name ] ) )
+      if( !_.object.isBasic( resultContainer[ name ] ) )
       resultContainer[ name ] = _.longToMap( resultContainer[ name ] );
     }
     else
@@ -274,7 +274,7 @@ function changesApply( /* changes, dst, src, options */ )
 
   options = options || Object.create( null );
 
-  _.assert( _.objectIs( dst ) );
+  _.assert( _.object.isBasic( dst ) );
   _.assert( 3 <= arguments.length && arguments.length <= 4 );
 
   return _changesApply( changes, dst, src, options );
@@ -328,7 +328,7 @@ function _changesApply( /* changes, dst, src, options */ )
     }
     dst = val0;
   }
-  else if( _.objectIs( changes ) )
+  else if( _.object.isBasic( changes ) )
   {
 
     _.assert( !!dst );
