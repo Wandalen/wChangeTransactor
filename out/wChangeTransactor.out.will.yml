@@ -2,12 +2,9 @@ format: outwillfile-2.0
 root:
   - wChangeTransactor.out
 consistency:
-  ../.ex.will.yml: &ref_0
-    hash: 6da888128393eb816855e3c7eff1ae27
-    size: 1973
-  ../.im.will.yml: &ref_1
-    hash: f1cc7ea1d39e02eae22a3753b5a2f133
-    size: 5058
+  ../will.yml: &ref_0
+    hash: db151670a350b32067cfdeb28730d6c1
+    size: 6803
 module:
   wChangeTransactor.out:
     about:
@@ -20,18 +17,18 @@ module:
         somehow elsewhere, for example on server-side or client-side.
       enabled: 1
       version: 0.4.0
-      interpreters: &ref_2
+      license: MIT
+      npm.name: wchangetransactor
+      author: Kostiantyn Wandalen <wanalen@01.school>
+      keywords: &ref_1
+        - wTools
+      contributors: &ref_2
+        - Kostiantyn Wandalen <wanalen@01.school>
+      interpreters: &ref_3
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
-        - wTools
-      license: MIT
-      author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: &ref_4
-        - Kostiantyn Wandalen <wanalen@01.school>
-      npm.name: wchangetransactor
-      npm.scripts: &ref_5
+      npm.scripts: &ref_4
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -46,15 +43,11 @@ module:
       module.original.willfiles:
         criterion:
           predefined: 1
-        path:
-          - ../.ex.will.yml
-          - ../.im.will.yml
+        path: ../will.yml
       module.peer.willfiles:
         criterion:
           predefined: 1
-        path:
-          - ../.ex.will.yml
-          - ../.im.will.yml
+        path: ../will.yml
       module.peer.in:
         criterion:
           predefined: 1
@@ -178,7 +171,7 @@ module:
         path: 'npm:///wProto'
         autoExporting: 0
         enabled: 0
-      wCloner:
+      wcloner:
         path: 'npm:///wcloner'
         autoExporting: 0
         enabled: 0
@@ -795,8 +788,7 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      ../will.yml: *ref_0
   ../:
     about:
       name: wChangeTransactor
@@ -808,26 +800,22 @@ module:
         somehow elsewhere, for example on server-side or client-side.
       enabled: 1
       version: 0.4.0
-      interpreters: *ref_2
-      keywords: *ref_3
       license: MIT
-      author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: *ref_4
       npm.name: wchangetransactor
-      npm.scripts: *ref_5
+      author: Kostiantyn Wandalen <wanalen@01.school>
+      keywords: *ref_1
+      contributors: *ref_2
+      interpreters: *ref_3
+      npm.scripts: *ref_4
     path:
       module.willfiles:
         criterion:
           predefined: 1
-        path:
-          - .ex.will.yml
-          - .im.will.yml
+        path: will.yml
       module.original.willfiles:
         criterion:
           predefined: 1
-        path:
-          - .ex.will.yml
-          - .im.will.yml
+        path: will.yml
       module.peer.willfiles:
         criterion:
           predefined: 1
@@ -933,7 +921,7 @@ module:
         path: 'npm:///wProto'
         autoExporting: 0
         enabled: 0
-      wCloner:
+      wcloner:
         path: 'npm:///wcloner'
         autoExporting: 0
         enabled: 0
@@ -1486,9 +1474,6 @@ module:
           - 'build::release'
           - 'build::npm'
     consistency:
-      ../.ex.will.yml:
-        hash: 6da888128393eb816855e3c7eff1ae27
-        size: 1973
-      ../.im.will.yml:
-        hash: f1cc7ea1d39e02eae22a3753b5a2f133
-        size: 5058
+      ../will.yml:
+        hash: db151670a350b32067cfdeb28730d6c1
+        size: 6803
