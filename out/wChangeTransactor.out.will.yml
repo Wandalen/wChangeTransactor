@@ -3,8 +3,8 @@ root:
   - wChangeTransactor.out
 consistency:
   ../will.yml: &ref_0
-    hash: db151670a350b32067cfdeb28730d6c1
-    size: 6803
+    hash: c711fcadb0b893cdebcda1b631f45a35
+    size: 6809
 module:
   wChangeTransactor.out:
     about:
@@ -103,7 +103,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: ../proto/wtools/amid/changes/ChangeTransactor.s
+        path: ../proto/wtools/amid/l3/change/ChangeTransactor.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -113,13 +113,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/wtools/amid/changes/ChangeTransactor.s'
+        path: '{path::out.*=1}/source/wtools/amid/l3/change/ChangeTransactor.s'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/wtools/amid/changes/ChangeTransactor.s'
+        path: '{path::out.*=1}/source/wtools/amid/l3/change/ChangeTransactor.s'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
@@ -134,7 +134,7 @@ module:
         path: '{path::out.*=}/source/Index.s'
       npm.proto.entry:
         path:
-          - ../proto/wtools/amid/changes/ChangeTransactor.s
+          - ../proto/wtools/amid/l3/change/ChangeTransactor.s
           - ../proto/node_modules/wchangetransactor
       exported.dir.proto.export:
         criterion:
@@ -156,11 +156,12 @@ module:
           - ../proto/wtools
           - ../proto/wtools/abase
           - ../proto/wtools/amid
-          - ../proto/wtools/amid/change.test
-          - ../proto/wtools/amid/change.test/ChangeTransactor.test.s
-          - ../proto/wtools/amid/changes
-          - ../proto/wtools/amid/changes/Changes.s
-          - ../proto/wtools/amid/changes/ChangeTransactor.s
+          - ../proto/wtools/amid/l3
+          - ../proto/wtools/amid/l3/change
+          - ../proto/wtools/amid/l3/change/Changes.s
+          - ../proto/wtools/amid/l3/change/ChangeTransactor.s
+          - ../proto/wtools/amid/l3/change.test
+          - ../proto/wtools/amid/l3/change.test/ChangeTransactor.test.s
           - ../proto/wtools/atop
     submodule:
       wTools:
@@ -879,7 +880,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: proto/wtools/amid/changes/ChangeTransactor.s
+        path: proto/wtools/amid/l3/change/ChangeTransactor.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -889,13 +890,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/wtools/amid/changes/ChangeTransactor.s'
+        path: '{path::out.*=1}/source/wtools/amid/l3/change/ChangeTransactor.s'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/wtools/amid/changes/ChangeTransactor.s'
+        path: '{path::out.*=1}/source/wtools/amid/l3/change/ChangeTransactor.s'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
@@ -910,7 +911,7 @@ module:
         path: '{path::out.*=}/source/Index.s'
       npm.proto.entry:
         path:
-          - proto/wtools/amid/changes/ChangeTransactor.s
+          - proto/wtools/amid/l3/change/ChangeTransactor.s
           - proto/node_modules/wchangetransactor
     submodule:
       wTools:
@@ -1475,5 +1476,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: db151670a350b32067cfdeb28730d6c1
-        size: 6803
+        hash: c711fcadb0b893cdebcda1b631f45a35
+        size: 6809
