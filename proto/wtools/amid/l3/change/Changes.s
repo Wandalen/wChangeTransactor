@@ -5,20 +5,16 @@
 
 if( typeof module !== 'undefined' )
 {
-
-  const _ = require( '../../../node_modules/Tools' );
-
+  const _ = require( '../../../../node_modules/Tools' );
 }
 
 //
 
 const _ = _global_.wTools;
-
 const _ArraySlice = Array.prototype.slice;
 const _FunctionBind = Function.prototype.bind;
 const _ObjectToString = Object.prototype.toString;
 const _ObjectHasOwnProperty = Object.hasOwnProperty;
-// var __assert = _.assert;
 
 // --
 // changes
