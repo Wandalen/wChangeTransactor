@@ -156,11 +156,11 @@ module:
           - ../proto/wtools
           - ../proto/wtools/abase
           - ../proto/wtools/amid
+          - ../proto/wtools/amid/change.test
+          - ../proto/wtools/amid/change.test/ChangeTransactor.test.s
           - ../proto/wtools/amid/changes
           - ../proto/wtools/amid/changes/Changes.s
           - ../proto/wtools/amid/changes/ChangeTransactor.s
-          - ../proto/wtools/amid/changes.test
-          - ../proto/wtools/amid/changes.test/Changes.test.s
           - ../proto/wtools/atop
     submodule:
       wTools:
