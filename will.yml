@@ -132,7 +132,7 @@ path:
       raw: compiled
       content: prime
   entry.proto.no.tests:
-    path: proto/wtools/amid/changes/ChangeTransactor.s
+    path: proto/wtools/amid/l3/change/ChangeTransactor.s
     criterion:
       tests: no.tests
   entry.proto.only.tests:
@@ -140,7 +140,7 @@ path:
     criterion:
       tests: only.tests
   entry.out.raw.debug:
-    path: '{path::out.*=1}/source/wtools/amid/changes/ChangeTransactor.s'
+    path: '{path::out.*=1}/source/wtools/amid/l3/change/ChangeTransactor.s'
     criterion:
       debug:
         - debug
@@ -156,7 +156,7 @@ path:
       raw: compiled
       content: prime
   npm.proto.entry:
-    - proto/wtools/amid/changes/ChangeTransactor.s
+    - proto/wtools/amid/l3/change/ChangeTransactor.s
     - proto/node_modules/wchangetransactor
 reflector:
   reflect.proto:

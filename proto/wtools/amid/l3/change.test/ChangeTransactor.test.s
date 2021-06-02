@@ -5,16 +5,9 @@
 
 if( typeof module !== 'undefined' )
 {
-
-  require( '../../../node_modules/Tools' );
-
-  const _ = _global_.wTools;
-
+  const _ = require( '../../../node_modules/Tools' );
+  require( 'wChangeTransactor' );
   _.include( 'wTesting' );
-
-  require( '../changes/Changes.s' );
-  require( '../changes/ChangeTransactor.s' );
-
 }
 
 const _ = _global_.wTools;
