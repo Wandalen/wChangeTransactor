@@ -12,12 +12,11 @@ if( typeof module !== 'undefined' )
 
 //
 
-const Self = _global_.wTools;
 const _ = _global_.wTools;
 
-var _ArraySlice = Array.prototype.slice;
-var _FunctionBind = Function.prototype.bind;
-var _ObjectToString = Object.prototype.toString;
+const _ArraySlice = Array.prototype.slice;
+const _FunctionBind = Function.prototype.bind;
+const _ObjectToString = Object.prototype.toString;
 const _ObjectHasOwnProperty = Object.hasOwnProperty;
 // var __assert = _.assert;
 
@@ -445,7 +444,7 @@ const Proto =
 
 };
 
-_.props.extend( Self, Proto );
+_.props.extend( _, Proto );
 
 // --
 // export
@@ -453,6 +452,6 @@ _.props.extend( Self, Proto );
 
 
 if( typeof module !== 'undefined' )
-module[ 'exports' ] = Self;
+module[ 'exports' ] = _;
 
 })();
