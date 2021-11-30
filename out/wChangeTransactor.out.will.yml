@@ -3,8 +3,8 @@ root:
   - wChangeTransactor.out
 consistency:
   ../will.yml: &ref_0
-    hash: ae259a917163e6e500007f7c5f10e482
-    size: 6668
+    hash: 29d4ebc787e66b6b14a77c79d049f4a0
+    size: 6676
 module:
   wChangeTransactor.out:
     about:
@@ -1458,5 +1458,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: ae259a917163e6e500007f7c5f10e482
-        size: 6668
+        hash: 29d4ebc787e66b6b14a77c79d049f4a0
+        size: 6676
