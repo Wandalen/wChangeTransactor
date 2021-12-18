@@ -1,6 +1,6 @@
 {
   "name": "wchangetransactor",
-  "version": "0.3.325",
+  "version": "0.3.326",
   "description": "Still sketch. Mixin to add the ability to track changes of an object, to reflect changes in a data structure and to make possible to apply the changes to another object. Use the module to mirror object's changes somehow elsewhere, for example on server-side or client-side.",
   "author": "Kostiantyn Wandalen <wandalen@obox.systems>",
   "license": "MIT",
@@ -24,12 +24,12 @@
     "url": "https://github.com/Wandalen/wChangeTransactor/issues"
   },
   "dependencies": {
-    "wTools": "delta",
-    "wProto": "delta",
-    "wcloner": "delta"
+    "wTools": "alpha",
+    "wProto": "alpha",
+    "wcloner": "alpha"
   },
   "devDependencies": {
-    "wTesting": "delta",
+    "wTesting": "alpha",
     "eslint": "7.32.0"
   },
   "keywords": [
